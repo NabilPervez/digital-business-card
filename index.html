@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nabil Pervez — Nabil Pervez Consulting</title>
+<meta name="description" content="Nabil Pervez — Founder & Principal Consultant, Nabil Pervez Consulting. Tap the card for contact details.">
+<meta name="theme-color" content="#07101F">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Nabil Pervez — Founder & Principal Consultant">
+<meta property="og:description" content="Nabil Pervez Consulting. Tap the card to connect.">
+<meta property="og:image" content="/assets/brand-card-lockup.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Outfit:wght@200;300;400;500&family=Prata&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink-950:#07101F; --ink-880:#0D1522; --ink-50:#E2EAF4; --ink-100:#C6D0E0; --ink-300:#8D9CB4; --ink-500:#5E718F;
+  --gold-100:#F5D97A; --gold-200:#F0CC6A; --gold-300:#DDB84A; --gold-500:#AB9563; --gold-600:#C88B20;
+  --grad-text:linear-gradient(120deg,#F5D97A 0%,#DDB84A 40%,#C88B20 75%,#E8B840 100%);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --pattern:url("assets/pattern-gold-tile-2x.png");
+  --noise:url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjAwIDIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC45JyBudW1PY3RhdmVzPSc0JyBzdGl0Y2hUaWxlcz0nc3RpdGNoJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoI24pJyBvcGFjaXR5PScwLjA0Jy8+PC9zdmc+");
+  --tx:0; --ty:0; /* tilt -1..1 */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--ink-950);color:var(--ink-50);-webkit-tap-highlight-color:transparent}
+body{font-family:Outfit,system-ui,sans-serif;font-weight:300;overflow:hidden;display:grid;place-items:center;
+  min-height:100dvh;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+a{color:inherit;text-decoration:none}
+
+/* ── Stage ambience ─────────────────────────── */
+.stage-bg{position:fixed;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 60% at 50% 45%,#0F1A2C 0%,var(--ink-950) 70%)}
+.stage-bg::after{content:"";position:absolute;inset:0;background-image:var(--noise);background-size:180px;opacity:.55}
+
+/* ── Card geometry ──────────────────────────── */
+.scene{perspective:1600px;position:relative;z-index:1}
+.card{--w:min(92vw, calc(88dvh * 1.75)); width:var(--w); aspect-ratio:1050/600;
+  position:relative;transform-style:preserve-3d;cursor:pointer;border-radius:calc(var(--w) * .027);
+  transform:rotateX(calc(var(--ty) * -6deg)) rotateY(calc(var(--tx) * 8deg));
+  transition:transform .6s var(--ease);
+  opacity:0;animation:enter 1.4s var(--ease) .15s forwards}
+@media (orientation:portrait){
+  .card{--w:min(88vw, calc(80dvh * .5714)); aspect-ratio:600/1050}
+}
+@keyframes enter{from{opacity:0;transform:translateY(28px) scale(.96)}to{opacity:1}}
+.flipper{position:absolute;inset:0;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.65,0,.25,1);border-radius:inherit}
+.card.is-back .flipper{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:inherit;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  background:var(--ink-880);
+  box-shadow:0 40px 80px -20px rgba(0,0,0,.75),0 18px 36px -18px rgba(0,0,0,.6),inset 0 0 0 1px rgba(221,184,74,.28)}
+.back{transform:rotateY(180deg)}
+.face::after{ /* hairline + grain over everything */
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:5;
+  background-image:var(--noise);background-size:180px;opacity:.55}
+
+/* Ripple background (from "Nebtune Background - Ripple") */
+.pattern{position:absolute;inset:0;background-image:var(--pattern);background-size:calc(var(--w) * .045)}
+.pattern.muted{filter:grayscale(1) brightness(.85);opacity:.13}
+.ring{position:absolute;inset:-40%;
+  -webkit-mask:radial-gradient(circle closest-side,transparent 78%,rgba(0,0,0,.4) 88%,#000 94%,rgba(0,0,0,.4) 98%,transparent 100%) 50% 50%/0 0 no-repeat;
+          mask:radial-gradient(circle closest-side,transparent 78%,rgba(0,0,0,.4) 88%,#000 94%,rgba(0,0,0,.4) 98%,transparent 100%) 50% 50%/0 0 no-repeat;
+  animation:ripple 12s var(--ease) infinite;opacity:0}
+.ring .pattern{filter:brightness(1.6) saturate(1.35)}
+.ring:nth-child(3){animation-delay:-6s}
+@keyframes ripple{
+  0%{-webkit-mask-size:0 0;mask-size:0 0;opacity:0}
+  10%{opacity:.9} 70%{opacity:.75}
+  100%{-webkit-mask-size:240% 240%;mask-size:240% 240%;opacity:0}
+}
+
+/* Sheen that follows tilt */
+.sheen{position:absolute;inset:-50%;z-index:4;pointer-events:none;mix-blend-mode:screen;
+  background:linear-gradient(115deg,transparent 40%,rgba(255,224,140,.05) 48%,rgba(255,236,180,.09) 50%,rgba(255,224,140,.05) 52%,transparent 60%);
+  transform:translate(calc(var(--tx) * 18%), calc(var(--ty) * 12%));transition:transform .6s var(--ease)}
+
+/* ── Front ──────────────────────────────────── */
+.front .clear{position:absolute;inset:0;background:radial-gradient(ellipse 42% 48% at 50% 50%,rgba(13,21,34,.94) 0%,rgba(13,21,34,.6) 60%,rgba(13,21,34,0) 100%)}
+.lockup{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(var(--w) * .028)}
+.mark img{height:calc(var(--w) * .27);width:auto;display:block;margin:calc(var(--w) * -.03) 0}
+.mark .glyph{font-family:Prata,serif;font-size:calc(var(--w) * .2);line-height:1;
+  background:var(--grad-text);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:shimmer 6s linear infinite}
+@keyframes shimmer{to{background-position:-200% 0}}
+.consult{font-family:Outfit,sans-serif;font-weight:400;font-size:calc(var(--w) * .021);letter-spacing:.55em;margin-right:-.55em;
+  color:var(--gold-300);text-transform:uppercase;white-space:nowrap}
+.hint{position:absolute;left:0;right:0;bottom:7%;text-align:center;font-size:calc(var(--w) * .015);letter-spacing:.35em;
+  text-transform:uppercase;color:var(--ink-500);animation:pulse 3.2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+@media (orientation:portrait){
+  .mark img{height:calc(var(--w) * .55)} .mark .glyph{font-size:calc(var(--w) * .38)}
+  .consult{font-size:calc(var(--w) * .034);letter-spacing:.42em;margin-right:-.42em;text-align:center;line-height:2;white-space:normal;width:80%}
+  .hint{font-size:calc(var(--w) * .026)}
+}
+
+/* ── Back ───────────────────────────────────── */
+.back .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,21,34,.4) 0%,rgba(13,21,34,.85) 34%,rgba(13,21,34,.94) 100%)}
+.back-inner{position:absolute;inset:0;display:grid;grid-template-columns:28% 1fr;align-items:center}
+.monogram{display:flex;justify-content:center}
+.monogram img{width:62%;height:auto;display:block}
+.monogram .npc{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:calc(var(--w) * .085);letter-spacing:.02em;
+  background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.details{border-left:1px solid rgba(221,184,74,.35);padding:0 6% 0 5%;display:flex;flex-direction:column;gap:calc(var(--w) * .018)}
+.name{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:calc(var(--w) * .06);line-height:1;letter-spacing:-.01em;color:var(--ink-50)}
+.title{font-weight:500;font-size:calc(var(--w) * .017);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-300);margin-top:calc(var(--w) * .008)}
+.links{list-style:none;display:grid;gap:calc(var(--w) * .004)}
+.links a{display:flex;align-items:center;gap:calc(var(--w) * .014);padding:calc(var(--w) * .005) 0;color:var(--ink-100);
+  font-size:calc(var(--w) * .024);transition:color .2s var(--ease),transform .2s var(--ease)}
+.links a:hover,.links a:focus-visible{color:var(--gold-200)}
+.links a:active{transform:scale(.985)}
+.links svg{width:calc(var(--w) * .024);height:calc(var(--w) * .024);flex:none;color:var(--gold-300);fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.links .arrow{color:var(--ink-500);margin-left:.15em}
+.actions{display:flex;gap:calc(var(--w) * .012);margin-top:calc(var(--w) * .004)}
+.btn{font:500 calc(var(--w) * .017)/1 Outfit,sans-serif;letter-spacing:.16em;text-transform:uppercase;border-radius:6px;
+  padding:calc(var(--w) * .012) calc(var(--w) * .018);border:1px solid rgba(221,184,74,.38);color:var(--gold-200);background:transparent;cursor:pointer;
+  transition:opacity .2s var(--ease),transform .2s var(--ease)}
+.btn.primary{background:linear-gradient(120deg,#F0CC6A 0%,#C88B20 50%,#E8B840 100%);color:var(--ink-950);border-color:transparent}
+.btn:active{transform:scale(.985)}
+@media (orientation:portrait){
+  .back .shade{background:linear-gradient(180deg,rgba(13,21,34,.45) 0%,rgba(13,21,34,.88) 30%,rgba(13,21,34,.95) 100%)}
+  .back-inner{grid-template-columns:1fr;grid-template-rows:24% 1fr;align-items:stretch}
+  .monogram{align-items:center} .monogram img{width:34%} .monogram .npc{font-size:calc(var(--w) * .15)}
+  .details{border-left:0;border-top:1px solid rgba(221,184,74,.35);margin:0 8%;padding:9% 0 0;justify-content:flex-start;gap:calc(var(--w) * .05)}
+  .name{font-size:calc(var(--w) * .12)} .title{font-size:calc(var(--w) * .028);margin-top:calc(var(--w) * .02)}
+  .links{gap:calc(var(--w) * .01)}
+  .links a{font-size:calc(var(--w) * .042);gap:calc(var(--w) * .035);padding:calc(var(--w) * .022) 0}
+  .links svg{width:calc(var(--w) * .045);height:calc(var(--w) * .045)}
+  .actions{gap:calc(var(--w) * .03)}
+  .btn{font-size:calc(var(--w) * .03);padding:calc(var(--w) * .035) calc(var(--w) * .045);flex:1}
+}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;z-index:9;
+  background:rgba(7,16,31,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(221,184,74,.3);
+  color:var(--ink-50);font-size:14px;letter-spacing:.06em;padding:10px 18px;border-radius:20px;transition:all .35s var(--ease);pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .card{opacity:1}
+}
+</style>
+</head>
+<body>
+<div class="stage-bg"></div>
+
+<main class="scene">
+  <div class="card" id="card" role="button" tabindex="0" aria-pressed="false" aria-label="Business card for Nabil Pervez. Tap to flip.">
+    <div class="flipper">
+      <!-- FRONT -->
+      <section class="face front" aria-hidden="false">
+        <div class="pattern muted"></div>
+        <div class="ring"><div class="pattern"></div></div>
+        <div class="ring"><div class="pattern"></div></div>
+        <div class="clear"></div>
+        <div class="lockup">
+          <div class="mark"><img src="assets/mark-nebtune-gold-bright.png" alt="N" onerror="this.outerHTML='<span class=glyph>N</span>'"></div>
+          <div class="consult">Nabil Pervez Consulting</div>
+        </div>
+        <div class="hint">Tap to connect</div>
+        <div class="sheen"></div>
+      </section>
+
+      <!-- BACK -->
+      <section class="face back" aria-hidden="true">
+        <div class="pattern muted"></div>
+        <div class="ring"><div class="pattern"></div></div>
+        <div class="shade"></div>
+        <div class="back-inner">
+          <div class="monogram"><img src="assets/monogram-npc-gold-bright.png" alt="NPC" onerror="this.outerHTML='<span class=npc>NPC</span>'"></div>
+          <div class="details">
+            <div>
+              <h1 class="name">Nabil Pervez</h1>
+              <div class="title">Founder &amp; Principal Consultant</div>
+            </div>
+            <ul class="links">
+              <li><a href="tel:+12146054762"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+1 (214) 605-4762</a></li>
+              <li><a href="mailto:nabilpervezconsulting@gmail.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>nabilpervezconsulting@gmail.com</a></li>
+              <li><a href="https://www.linkedin.com/in/perveznabil" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn<span class="arrow">↗</span></a></li>
+              <li><a href="https://nabilpervez.com/portfolio" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Portfolio<span class="arrow">↗</span></a></li>
+              <li><a href="https://nabilpervezconsulting.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>nabilpervezconsulting.com<span class="arrow">↗</span></a></li>
+            </ul>
+            <div class="actions">
+              <a class="btn primary" href="nabil-pervez.vcf" download>Save contact</a>
+              <button class="btn" id="share" type="button">Share</button>
+            </div>
+          </div>
+        </div>
+        <div class="sheen"></div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(() => {
+  const card = document.getElementById('card');
+  const faces = card.querySelectorAll('.face');
+  const root = document.documentElement;
+
+  // Flip — but let links and buttons do their own job
+  const flip = () => {
+    const back = card.classList.toggle('is-back');
+    card.setAttribute('aria-pressed', back);
+    faces[0].setAttribute('aria-hidden', back);
+    faces[1].setAttribute('aria-hidden', !back);
+    if (navigator.vibrate) navigator.vibrate(8);
+  };
+  card.addEventListener('click', e => { if (!e.target.closest('a,button')) flip(); });
+  card.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target === card) { e.preventDefault(); flip(); }
+  });
+
+  // Tilt: device motion on phones, pointer on desktop
+  const set = (x, y) => { root.style.setProperty('--tx', x.toFixed(3)); root.style.setProperty('--ty', y.toFixed(3)); };
+  const clamp = v => Math.max(-1, Math.min(1, v));
+  let base = null;
+  const onOrient = e => {
+    if (e.beta == null) return;
+    const landscape = window.innerWidth > window.innerHeight;
+    const a = landscape ? e.beta : e.gamma, b = landscape ? -e.gamma : e.beta;
+    if (!base) base = { a, b };
+    set(clamp((a - base.a) / 25), clamp((b - base.b) / 25));
+  };
+  const listenOrient = () => window.addEventListener('deviceorientation', onOrient);
+  if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+    // iOS: ask on first tap
+    card.addEventListener('click', () => DeviceOrientationEvent.requestPermission().then(r => r === 'granted' && listenOrient()).catch(() => {}), { once: true });
+  } else listenOrient();
+  window.addEventListener('orientationchange', () => { base = null; });
+  window.addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse') return;
+    set(clamp((e.clientX / innerWidth - .5) * 2), clamp((e.clientY / innerHeight - .5) * 2));
+  });
+
+  // Share
+  const toast = msg => { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 2200); };
+  document.getElementById('share').addEventListener('click', async () => {
+    const data = { title: 'Nabil Pervez', text: 'Nabil Pervez — Founder & Principal Consultant, Nabil Pervez Consulting', url: location.href };
+    try {
+      if (navigator.share) await navigator.share(data);
+      else { await navigator.clipboard.writeText(location.href); toast('Link copied'); }
+    } catch (_) {}
+  });
+})();
+</script>
+</body>
+</html>
